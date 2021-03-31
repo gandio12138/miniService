@@ -6,20 +6,25 @@ service ShippingService {
   rpc CreateConsignment (CreateConsignmentReq) returns (CreateConsignmentRsp);
 }
 
-message CreateConsignmentReq {
-  message container {
-    string containerId = 1;
-    string customerId = 2;
-    string departure = 3;
-    string userId = 4;
-  }
+message Container {
+  string containerId = 1;
+  string customerId = 2;
+  string departure = 3;
+  string userId = 4;
+}
+
+message Consignment {
   string consignmentId = 1;
   string consignmentDesc = 2;
   int32 consignmentWeight = 3;
-  repeated container containers = 4;
+  repeated Container containers = 4;
   string vesselId = 5;
+}
+
+message CreateConsignmentReq {
+  Consignment consignment = 1;
 }
 message CreateConsignmentRsp {
   bool created = 1;
-  CreateConsignmentReq Consignment = 2;
+  Consignment Consignment = 2;
 }
