@@ -6,7 +6,8 @@ import (
 	"errors"
 	"fmt"
 	pb "github.com/gandio12138/miniService/protobuf"
-	"google.golang.org/grpc"
+	"github.com/micro/go-micro/client"
+	"github.com/micro/go-micro/config/cmd"
 	"io/ioutil"
 	"log"
 	"os"
@@ -26,16 +27,10 @@ func parseFile(filePath string) (*pb.Consignment, error) {
 }
 
 func main() {
-	conn, err := grpc.Dial(":50051", grpc.WithInsecure())
-	if err != nil {
-		log.Fatalf("grcp.Dial() error: %v\n", err)
+	if err := cmd.Init(); err != nil {
+		log.Fatalf("cmd.Init error: %v\n", err)
 	}
-	defer func() {
-		if err = conn.Close(); err != nil {
-			log.Fatalf("conn.Close() error: %v\n", err)
-		}
-	}()
-	client := pb.NewShippingServiceClient(conn)
+	cli := pb.NewShippingServiceClient("go.micro.consignment.service", client.DefaultClient)
 	infoFile := "consignment.json"
 	if len(os.Args) > 1 {
 		infoFile = os.Args[1]
@@ -44,12 +39,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("%v", err)
 	}
-	respSingle, err := client.CreateConsignment(context.Background(), &pb.CreateConsignmentReq{Consignment: consignment})
+	respSingle, err := cli.CreateConsignment(context.Background(), &pb.CreateConsignmentReq{Consignment: consignment})
 	if err != nil {
 		log.Fatalf("client.CreateConsignment() error: %v\n", err)
 	}
 	fmt.Printf("client.CreateConsignment resp: %v\n", respSingle)
-	respAll, err := client.GetConsignments(context.Background(), &pb.GetConsignmentReq{})
+	respAll, err := cli.GetConsignments(context.Background(), &pb.GetConsignmentReq{})
 	if err != nil {
 		log.Fatalf("client GetConsignment() error: %v\n", err)
 	}
