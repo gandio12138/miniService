@@ -1,0 +1,14 @@
+{
+  "consignmentId": "consignment001",
+  "consignmentDesc": "This is a test consignment",
+  "consignmentWeight": 550,
+  "containers": [
+    {
+      "containerId": "cust001",
+      "customerId": "cust001",
+      "userId": "user001",
+      "departure": "Manchester, United Kingdom"
+    }
+  ],
+  "vesselId": "vessel001"
+}

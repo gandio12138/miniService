@@ -276,6 +276,107 @@ func (x *CreateConsignmentRsp) GetConsignment() *Consignment {
 	return nil
 }
 
+type GetConsignmentReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetConsignmentReq) Reset() {
+	*x = GetConsignmentReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protocol_consignment_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetConsignmentReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConsignmentReq) ProtoMessage() {}
+
+func (x *GetConsignmentReq) ProtoReflect() protoreflect.Message {
+	mi := &file_protocol_consignment_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConsignmentReq.ProtoReflect.Descriptor instead.
+func (*GetConsignmentReq) Descriptor() ([]byte, []int) {
+	return file_protocol_consignment_proto_rawDescGZIP(), []int{4}
+}
+
+type GetConsignmentRsp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Created      bool           `protobuf:"varint,1,opt,name=created,proto3" json:"created,omitempty"`
+	Consignment  *Consignment   `protobuf:"bytes,2,opt,name=consignment,proto3" json:"consignment,omitempty"`
+	Consignments []*Consignment `protobuf:"bytes,3,rep,name=consignments,proto3" json:"consignments,omitempty"`
+}
+
+func (x *GetConsignmentRsp) Reset() {
+	*x = GetConsignmentRsp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protocol_consignment_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetConsignmentRsp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConsignmentRsp) ProtoMessage() {}
+
+func (x *GetConsignmentRsp) ProtoReflect() protoreflect.Message {
+	mi := &file_protocol_consignment_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConsignmentRsp.ProtoReflect.Descriptor instead.
+func (*GetConsignmentRsp) Descriptor() ([]byte, []int) {
+	return file_protocol_consignment_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetConsignmentRsp) GetCreated() bool {
+	if x != nil {
+		return x.Created
+	}
+	return false
+}
+
+func (x *GetConsignmentRsp) GetConsignment() *Consignment {
+	if x != nil {
+		return x.Consignment
+	}
+	return nil
+}
+
+func (x *GetConsignmentRsp) GetConsignments() []*Consignment {
+	if x != nil {
+		return x.Consignments
+	}
+	return nil
+}
+
 var File_protocol_consignment_proto protoreflect.FileDescriptor
 
 var file_protocol_consignment_proto_rawDesc = []byte{
@@ -319,18 +420,39 @@ var file_protocol_consignment_proto_rawDesc = []byte{
 	0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x67, 0x6f, 0x2e, 0x67,
 	0x72, 0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69,
 	0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65,
-	0x6e, 0x74, 0x52, 0x0b, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x32,
-	0x8a, 0x01, 0x0a, 0x0f, 0x53, 0x68, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x12, 0x77, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e,
-	0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x30, 0x2e, 0x67, 0x6f, 0x2e, 0x67, 0x72,
-	0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67,
-	0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x73,
-	0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x30, 0x2e, 0x67, 0x6f, 0x2e,
-	0x67, 0x72, 0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73,
-	0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f,
-	0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x73, 0x70, 0x42, 0x10, 0x5a, 0x0e,
-	0x2e, 0x2f, 0x3b, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x74, 0x52, 0x0b, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x22,
+	0x13, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e,
+	0x74, 0x52, 0x65, 0x71, 0x22, 0xc5, 0x01, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x73,
+	0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x73, 0x70, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x64, 0x12, 0x49, 0x0a, 0x0b, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d,
+	0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x67, 0x6f, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69,
+	0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65,
+	0x6e, 0x74, 0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12,
+	0x4b, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18,
+	0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x67, 0x6f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65,
+	0x6e, 0x74, 0x2e, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0c,
+	0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x32, 0xfb, 0x01, 0x0a,
+	0x0f, 0x53, 0x68, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x12, 0x77, 0x0a, 0x11, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67,
+	0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x30, 0x2e, 0x67, 0x6f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65,
+	0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e,
+	0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x30, 0x2e, 0x67, 0x6f, 0x2e, 0x67, 0x72, 0x70,
+	0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e,
+	0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x73, 0x69,
+	0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x73, 0x70, 0x12, 0x6f, 0x0a, 0x0f, 0x47, 0x65, 0x74,
+	0x43, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x2d, 0x2e, 0x67,
+	0x6f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f,
+	0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e,
+	0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x2d, 0x2e, 0x67, 0x6f,
+	0x2e, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x63, 0x6f, 0x6e,
+	0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6e, 0x73,
+	0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x73, 0x70, 0x42, 0x10, 0x5a, 0x0e, 0x2e, 0x2f,
+	0x3b, 0x63, 0x6f, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -345,24 +467,30 @@ func file_protocol_consignment_proto_rawDescGZIP() []byte {
 	return file_protocol_consignment_proto_rawDescData
 }
 
-var file_protocol_consignment_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_protocol_consignment_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_protocol_consignment_proto_goTypes = []interface{}{
 	(*Container)(nil),            // 0: go.grpc.server.consignment.Container
 	(*Consignment)(nil),          // 1: go.grpc.server.consignment.Consignment
 	(*CreateConsignmentReq)(nil), // 2: go.grpc.server.consignment.CreateConsignmentReq
 	(*CreateConsignmentRsp)(nil), // 3: go.grpc.server.consignment.CreateConsignmentRsp
+	(*GetConsignmentReq)(nil),    // 4: go.grpc.server.consignment.GetConsignmentReq
+	(*GetConsignmentRsp)(nil),    // 5: go.grpc.server.consignment.GetConsignmentRsp
 }
 var file_protocol_consignment_proto_depIdxs = []int32{
 	0, // 0: go.grpc.server.consignment.Consignment.containers:type_name -> go.grpc.server.consignment.Container
 	1, // 1: go.grpc.server.consignment.CreateConsignmentReq.consignment:type_name -> go.grpc.server.consignment.Consignment
 	1, // 2: go.grpc.server.consignment.CreateConsignmentRsp.Consignment:type_name -> go.grpc.server.consignment.Consignment
-	2, // 3: go.grpc.server.consignment.ShippingService.CreateConsignment:input_type -> go.grpc.server.consignment.CreateConsignmentReq
-	3, // 4: go.grpc.server.consignment.ShippingService.CreateConsignment:output_type -> go.grpc.server.consignment.CreateConsignmentRsp
-	4, // [4:5] is the sub-list for method output_type
-	3, // [3:4] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	1, // 3: go.grpc.server.consignment.GetConsignmentRsp.consignment:type_name -> go.grpc.server.consignment.Consignment
+	1, // 4: go.grpc.server.consignment.GetConsignmentRsp.consignments:type_name -> go.grpc.server.consignment.Consignment
+	2, // 5: go.grpc.server.consignment.ShippingService.CreateConsignment:input_type -> go.grpc.server.consignment.CreateConsignmentReq
+	4, // 6: go.grpc.server.consignment.ShippingService.GetConsignments:input_type -> go.grpc.server.consignment.GetConsignmentReq
+	3, // 7: go.grpc.server.consignment.ShippingService.CreateConsignment:output_type -> go.grpc.server.consignment.CreateConsignmentRsp
+	5, // 8: go.grpc.server.consignment.ShippingService.GetConsignments:output_type -> go.grpc.server.consignment.GetConsignmentRsp
+	7, // [7:9] is the sub-list for method output_type
+	5, // [5:7] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_protocol_consignment_proto_init() }
@@ -419,6 +547,30 @@ func file_protocol_consignment_proto_init() {
 				return nil
 			}
 		}
+		file_protocol_consignment_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetConsignmentReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_protocol_consignment_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetConsignmentRsp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -426,7 +578,7 @@ func file_protocol_consignment_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protocol_consignment_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -453,6 +605,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ShippingServiceClient interface {
 	CreateConsignment(ctx context.Context, in *CreateConsignmentReq, opts ...grpc.CallOption) (*CreateConsignmentRsp, error)
+	GetConsignments(ctx context.Context, in *GetConsignmentReq, opts ...grpc.CallOption) (*GetConsignmentRsp, error)
 }
 
 type shippingServiceClient struct {
@@ -472,9 +625,19 @@ func (c *shippingServiceClient) CreateConsignment(ctx context.Context, in *Creat
 	return out, nil
 }
 
+func (c *shippingServiceClient) GetConsignments(ctx context.Context, in *GetConsignmentReq, opts ...grpc.CallOption) (*GetConsignmentRsp, error) {
+	out := new(GetConsignmentRsp)
+	err := c.cc.Invoke(ctx, "/go.grpc.server.consignment.ShippingService/GetConsignments", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ShippingServiceServer is the server API for ShippingService service.
 type ShippingServiceServer interface {
 	CreateConsignment(context.Context, *CreateConsignmentReq) (*CreateConsignmentRsp, error)
+	GetConsignments(context.Context, *GetConsignmentReq) (*GetConsignmentRsp, error)
 }
 
 // UnimplementedShippingServiceServer can be embedded to have forward compatible implementations.
@@ -483,6 +646,9 @@ type UnimplementedShippingServiceServer struct {
 
 func (*UnimplementedShippingServiceServer) CreateConsignment(context.Context, *CreateConsignmentReq) (*CreateConsignmentRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateConsignment not implemented")
+}
+func (*UnimplementedShippingServiceServer) GetConsignments(context.Context, *GetConsignmentReq) (*GetConsignmentRsp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetConsignments not implemented")
 }
 
 func RegisterShippingServiceServer(s *grpc.Server, srv ShippingServiceServer) {
@@ -507,6 +673,24 @@ func _ShippingService_CreateConsignment_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ShippingService_GetConsignments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConsignmentReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShippingServiceServer).GetConsignments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/go.grpc.server.consignment.ShippingService/GetConsignments",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShippingServiceServer).GetConsignments(ctx, req.(*GetConsignmentReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ShippingService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "go.grpc.server.consignment.ShippingService",
 	HandlerType: (*ShippingServiceServer)(nil),
@@ -514,6 +698,10 @@ var _ShippingService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateConsignment",
 			Handler:    _ShippingService_CreateConsignment_Handler,
+		},
+		{
+			MethodName: "GetConsignments",
+			Handler:    _ShippingService_GetConsignments_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

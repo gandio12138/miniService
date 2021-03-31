@@ -4,6 +4,7 @@ option go_package = "./;consignment";
 
 service ShippingService {
   rpc CreateConsignment (CreateConsignmentReq) returns (CreateConsignmentRsp);
+  rpc GetConsignments (GetConsignmentReq) returns (GetConsignmentRsp);
 }
 
 message Container {
@@ -27,4 +28,13 @@ message CreateConsignmentReq {
 message CreateConsignmentRsp {
   bool created = 1;
   Consignment Consignment = 2;
+}
+
+message GetConsignmentReq {
+
+}
+message GetConsignmentRsp {
+  bool created = 1;
+  Consignment consignment = 2;
+  repeated Consignment consignments = 3;
 }
