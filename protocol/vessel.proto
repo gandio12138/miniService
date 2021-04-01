@@ -1,0 +1,26 @@
+syntax = "proto3";
+package go.grpc.server.vessel;
+option go_package = "./vessel;vessel";
+
+service VesselService  {
+  rpc FindAvailable (FindAvailableReq) returns (FindAvailableRsp);
+}
+
+message Vessel {
+  string vesselId = 1;
+  int32 capacity = 2;
+  int32 maxWeight = 3;
+  string vesselName = 4;
+  bool available = 5;
+  string ownerId = 6;
+}
+
+message FindAvailableReq {
+  int32 capacity = 1;
+  int32 maxWeight = 2;
+}
+
+message FindAvailableRsp {
+  Vessel vessel = 1;
+  repeated Vessel vessels = 2;
+}

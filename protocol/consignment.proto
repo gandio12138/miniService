@@ -1,6 +1,6 @@
 syntax = "proto3";
 package go.grpc.server.consignment;
-option go_package = "./;consignment";
+option go_package = "./consignment;consignment";
 
 service ShippingService {
   rpc CreateConsignment (CreateConsignmentReq) returns (CreateConsignmentRsp);
