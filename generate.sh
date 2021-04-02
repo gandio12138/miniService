@@ -8,5 +8,5 @@ protoBufFilePath=$2
 files=$(ls "$protoFilePath" | grep .proto)
 for fileName in $files; do
   echo "$protoFilePath$fileName"
-  protoc -I. --go_out=plugins=micro:"$protoBufFilePath" "$protoFilePath$fileName"
+  protoc -I. --go_out="$protoBufFilePath" --micro_out="$protoBufFilePath" "$protoFilePath$fileName"
 done

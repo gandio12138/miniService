@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/asim/go-micro/v3/client"
+	"github.com/asim/go-micro/v3/cmd"
 	consignmentPb "github.com/gandio12138/miniService/protobuf/consignment"
-	"github.com/micro/go-micro/client"
-	"github.com/micro/go-micro/config/cmd"
 	"io/ioutil"
 	"log"
 	"os"
@@ -30,7 +30,7 @@ func main() {
 	if err := cmd.Init(); err != nil {
 		log.Fatalf("cmd.Init error: %v\n", err)
 	}
-	cli := consignmentPb.NewShippingServiceClient("go.micro.consignment.service", client.DefaultClient)
+	cli := consignmentPb.NewShippingService("go.micro.consignment.service", client.DefaultClient)
 	infoFile := "consignment.json"
 	if len(os.Args) > 1 {
 		infoFile = os.Args[1]
